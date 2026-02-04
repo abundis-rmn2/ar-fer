@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Experiencia AR Premium - Café</title>
+
+    <!-- MindAR and A-Frame Libraries -->
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+</head>
+
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loading-overlay">
+        <div class="loader-spinner"></div>
+        <div class="loader-text">Iniciando Experiencia...</div>
+    </div>
+
+    <!-- UI Interaction Layer -->
+    <div id="ui-overlay">
+        <div class="glass-panel">
+            <p class="instruction-text">
+                Bienvenido a la experiencia de <b>Realidad Aumentada</b>.<br>
+                Presiona el botón para comenzar.
+            </p>
+            <button id="start-ar-btn">COMENZAR AR</button>
+        </div>
+    </div>
+
+    <!-- A-Frame Scene -->
+    <a-scene mindar-image="imageTargetSrc: cafe.mind; filterMinCF:0.0001; filterBeta: 0.001;" color-space="sRGB"
+        renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+        device-orientation-permission-ui="enabled: false">
+
+        <a-assets>
+            <!-- Principal Video -->
+            <video id="ar-video" src="video.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline
+                webkit-playsinline></video>
+
+            <!-- Template/Poster Image -->
+            <img id="template-img" src="imagen.jpeg">
+        </a-assets>
+
+        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+        <!-- Tracking Target -->
+        <a-entity id="target-entity" mindar-image-target="targetIndex: 0">
+            <!-- Video Plane - Adjusted to 1:1 ratio -->
+            <a-video src="#ar-video" width="1" height="1" position="0 0 0" rotation="0 0 0">
+            </a-video>
+
+            <!-- Subtle border/template frame - Adjusted to 1:1 ratio -->
+            <a-image src="#template-img" width="1" height="1" position="0 0 -0.01" opacity="0.5">
+            </a-image>
+        </a-entity>
+    </a-scene>
+
+</body>
+
+</html>
