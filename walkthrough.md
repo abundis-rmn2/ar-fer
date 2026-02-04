@@ -43,7 +43,16 @@ Tener el código en GitHub es genial, pero queremos que la gente lo vea como una
 
 ---
 
-## 🛠️ Fase 5: El Ciclo de Trabajo (Tu rutina diaria)
+## 🎨 Fase 5: Ajustes de Diseño (Iteración)
+
+No siempre queda perfecto a la primera. En este paso:
+*   **El Reto:** El video no coincidía con el tamaño real de la imagen física (721x962).
+*   **La Solución:** Ajustamos las dimensiones en el código (`width` y `height`) para que la relación de aspecto fuera exacta (~0.75).
+*   **El Proceso:** Cada vez que hacemos un ajuste, repetimos el "Ciclo de Trabajo" (Add -> Commit -> Push) para que los cambios se vean en el móvil.
+
+---
+
+## 🛠️ Fase 6: El Ciclo de Trabajo (Tu rutina diaria)
 
 Ya que todo está configurado, esta es la rutina que seguirás para actualizar tu proyecto:
 
